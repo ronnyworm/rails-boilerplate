@@ -1,0 +1,11 @@
+# Ignore bundler config.
+/.bundle
+
+.env
+/db
+*/log/*
+/tmp
+*/tmp/*
+
+nohup.out
+.keep

@@ -1,0 +1,83 @@
+
+
+de:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: "Diese E-Mail Adresse wurde schon registriert. Nimm bitte eine andere."
+            password_confirmation:
+              confirmation: "Das eingegebene Passwort in den beiden Feldern muss übereinstimmen."
+        vehicle:
+          attributes:
+            numberplate:
+              blank: "darf nicht leer sein"
+        notification:
+          attributes:
+            category_id:
+              blank: "Kategorie darf nicht leer sein"
+        vehicle_owner_notification:
+          attributes:
+            vehicle_category_id:
+              taken: "Diese Kombination gibt es schon!"
+  errors:
+    messages:
+      expired: "ist abgelaufen, bitte neu anfordern"
+      not_found: "wurde nicht gefunden"
+      already_confirmed: "wurde bereits bestätigt, bitte melde Dich an"
+      not_locked: "war nicht gesperrt"
+      not_saved:
+        one: "Es gab leider eine Schwierigkeit:"
+        other: "Es gab leider %{count} Schwierigkeiten:"
+      confirmation_period_expired: "Du musst erst den Bestätigungslink in unserem Email anklicken. Oder fordere ein weiteres Email zum Bestätigen von deinem Account an."
+  devise:
+    failure:
+      already_authenticated: "Du bist schon angemeldet."
+      unauthenticated: "Bitte melde Dich an."
+      unconfirmed: "Bitte bestätige Deine Registrierung (schau mal in Deine Mails und Spam)."
+      locked: "Dein Nutzerkonto ist gesperrt."
+      invalid: "Der Nutzername, bzw. die E-Mail-Adresse oder das Passwort ist ungültig."
+      invalid_token: "Dieser Freischalt-Code ist ungültig."
+      timeout: "Deine Anmeldung ist abgelaufen, bitte melde Dich erneut an."
+      inactive: "Du hast Deine Anmeldung noch nicht bestätigt."
+      not_found_in_database: "Du bist anscheinend noch nicht registriert. Kein Problem!"
+    sessions:
+      signed_in: "Hallo! 😊 Du bist jetzt angemeldet."
+      signed_out: "Auf wiedersehen 👋, Du bist jetzt abgemeldet."
+      user:
+        already_signed_out: "Du bist schon abgemeldet."
+    passwords:
+      send_instructions: "Eine E-Mail zum Ändern Deines Passworts ist zu Dir unterwegs."
+      send_paranoid_instructions: "Eine E-Mail zum Ändern Deines Passworts ist schon unterwegs."
+      updated: "Du hast Dein Passwort soeben geändert. Du kannst jetzt loslegen 😊"
+      updated_not_active: "Du hast Dein Passwort geändert."
+      invalid_token: "Dieser Link zum Ändern Deines Passworts ist ungültig oder wurde bereits genutzt."
+      no_token: "Dieser Link zum Ändern Deines Passworts ist ungültig. Es fehlt ein Sicherheitsschlüssel."
+    confirmations:
+      send_instructions: "Wir haben Dir eine E-Mail geschickt, mit der Du Deine Registrierung bestätigen kannst 😊"
+      send_paranoid_instructions: "Eine E-Mail ist schon unterwegs, mit der Du Deine Registrierung bestätigen kannst."
+      confirmed: "Vielen Dank! Dein Account ist jetzt freigeschaltet und Du bist angemeldet 😊"
+    registrations:
+      signed_up: "Super, dass Du dabei bist! 😊"
+      signed_up_but_unconfirmed: "Wir haben Dir eine E-Mail ✉️ geschickt. Bitte bestätige diese zuerst."
+      signed_up_but_inactive: "Dein Account ist inaktiv. Bitte klicke unten um eine Bestätigungsemail anzufordern."
+      signed_up_but_locked: "Dein Account ist gesperrt. Bitte klicke unten um Deinen Account zu entsperren."
+      updated: "Danke, dass Du Deine Daten aktuell hältst."
+      update_needs_confirmation: "Vielen Dank. Eine E-Mail ist zu Dir unterwegs, mit der Du Deine Änderungen bestätigen kannst."
+      destroyed: "Schade, Du hast Dein Nutzerkonto gelöscht. Mach's gut und hoffentlich bis bald."
+    unlocks:
+      send_instructions: "Eine E-Mail mit Freischalt-Infos ist zu Dir unterwegs."
+      send_paranoid_instructions: "Eine E-Mail mit Freischalt-Infos ist schon unterwegs."
+      unlocked: "Du hast Dein Nutzerkonto soeben freigeschaltet. Du bist nun angemeldet."
+    omniauth_callbacks:
+      success: "Du hast Dich erfolgreich per %{kind} angemeldet."
+      failure: 'Die Anmeldung per %{kind} hat leider nicht geklappt: "%{reason}"'
+    mailer:
+      confirmation_instructions:
+        subject: "📣🚘 anhupen.de - E-Mail bestätigen"
+      reset_password_instructions:
+        subject: "Dein Passwort ändern"
+      unlock_instructions:
+        subject: "Dein Nutzerkonto freischalten"

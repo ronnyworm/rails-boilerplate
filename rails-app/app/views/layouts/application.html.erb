@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= csrf_meta_tags %>
+  <title>MoneyFalcon - <%= content_for?(:title) ? yield(:title) : 'Vermögensmanagement' %></title>
+
+  <!-- Favicons -->
+  <!-- link href="assets/img/favicon.png" rel="icon"-->
+  <!-- link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"-->
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+</head>
+
+<body>
+  <% if Rails.env == "development" %>
+    <script type="text/javascript">
+      console.log("controller: <%= controller_name %>; action: <%= action_name %>");
+    </script>
+  <% end %>
+
+  <% if current_user %>
+    <%= render 'layouts/logged_in' %>
+  <% else %>
+    <%= render 'layouts/login_or_signup' %>
+  <% end %>
+
+  <%= javascript_include_tag 'application' %>
+</body>
+
+</html>

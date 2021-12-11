@@ -1,0 +1,59 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+de:
+  date:
+    order: [ !ruby/symbol day, !ruby/symbol month, !ruby/symbol year ]
+    month_names:
+      [~, Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]
+  activerecord:
+    models:
+      user: User
+    attributes:
+      user:
+        password: "Passwort"
+        email: "E-Mail"
+        name: "Username"
+      vehicle:
+        vehicle_category_id: "Fahrzeugkategorie"
+        numberplate: "Kennzeichen"
+        car_service_id: "Werkstatt"
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: ": Bitte gib eine E-Mail-Adresse ein."
+            password:
+              too_short: ": Bitte gib mindestens %{count} Zeichen an."
+              blank: ": Bitte gib ein Passwort ein."
+            current_password:
+              invalid: ": du hast dein altes Passwort falsch eingegeben."
+              blank: ": bitte gib dein aktuelles Passwort ein, um die Änderung durchzuführen"
+            phone:
+              invalid: ": Bitte verwende in der Telefonnummer nur Zahlen, Leerzeichen und Bindestriche"
+        vehicle:
+          attributes:
+            vehicle_category_id:
+              blank: ": muss ausgewählt werden."
+            numberplate:
+              taken: ": ist bereits eingetragen - bitte <a href='mailto:info@anhupen.de'>kontaktiere uns</a> mit einem Foto Deines Fahrzeugscheins, damit wir das korrigieren können - Danke!"
+              change: ": kann nicht ohne Nachweis geändert werden. Bitte <a href='mailto:info@anhupen.de'>kontaktiere uns</a> mit einem Foto Deines Fahrzeugscheins, damit wir das korrigieren können - Danke!"
