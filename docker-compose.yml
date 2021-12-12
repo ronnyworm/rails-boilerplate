@@ -45,7 +45,7 @@ services:
       NETCUP_MAIL_PASSWORD: ${NETCUP_MAIL_PASSWORD}
       NETCUP_MAIL_DOMAIN: ${NETCUP_MAIL_DOMAIN}
       BASE_URL: ${BASE_URL}
-    container_name: app
+    container_name: ${PROJECT_NAME}-app
     restart: unless-stopped
     volumes:
       - "./rails-app/:/rails-app/home"
