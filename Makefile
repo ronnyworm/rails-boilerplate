@@ -8,7 +8,8 @@ first:
 	@echo "GRANT ALL ON xyz_dev.* TO 'username';"
 	@echo ""
 	@echo "Also do this:"
-	cat rails-app/db/starting-data.sql
+	#cat rails-app/db/starting-data.sql
+	@echo use seeds
 
 start:
 	docker-compose --project-name $(PROJECT_NAME) up -d

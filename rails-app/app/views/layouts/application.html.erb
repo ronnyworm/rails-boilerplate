@@ -5,7 +5,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= csrf_meta_tags %>
-  <title>MoneyFalcon - <%= content_for?(:title) ? yield(:title) : 'Vermögensmanagement' %></title>
+  <title>THENAME - <%= content_for?(:title) ? yield(:title) : 'STANDARDTEXT' %></title>
 
   <!-- Favicons -->
   <!-- link href="assets/img/favicon.png" rel="icon"-->
@@ -23,11 +23,7 @@
     </script>
   <% end %>
 
-  <% if current_user %>
-    <%= render 'layouts/logged_in' %>
-  <% else %>
-    <%= render 'layouts/login_or_signup' %>
-  <% end %>
+  <%= yield %>
 
   <%= javascript_include_tag 'application' %>
 </body>
