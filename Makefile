@@ -21,7 +21,7 @@ intocon:
 	docker exec -it $(CONTAINER_NAME) /bin/bash
 
 stop:
-	docker-compose stop
+	docker-compose --project-name $(PROJECT_NAME) stop
 
 test:
 	docker exec -it $(CONTAINER_NAME) rake test RAILS_ENV=test
