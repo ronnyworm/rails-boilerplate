@@ -1,13 +1,9 @@
-FROM ruby:2.4
+FROM ruby:2.7
 
-RUN apt-get update -qq && apt-get install -y graphviz
+RUN apt-get update -qq && apt-get install -y sqlite3 graphviz
 
-WORKDIR /rails-app
-COPY . home/
-WORKDIR /rails-app/home
-
+WORKDIR /usr/app
+COPY . .
 EXPOSE $RAILS_PORT
 
-RUN bundle install
-
-CMD ["/rails-app/home/idle.sh"]
+CMD ["sh", "/usr/app/idle.sh"]

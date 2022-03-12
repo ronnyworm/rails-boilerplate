@@ -1,0 +1,20 @@
+# at least change all passwords and secret_key_base!
+
+DB_HOST=app-db
+MYSQL_DB_PREFIX=newapp
+MYSQL_DB=newapp_dev
+MYSQL_ROOT=admin # change!!
+MYSQL_USER=newappx12
+MYSQL_USER_PW=user # change!!
+PROJECT_NAME=newapp2
+CONTAINER_NAME=newapp-app_1
+PMA_PORT=8502
+RAILS_PORT=3002
+RAILS_ENV=development
+SECRET_KEY_BASE=4ded20dcb881291372eace466d0dbccccd148379ad76a4ec8f8e6403201f7156106751f08e723be295a4c16e7cf2f3e3af469e599a6b48b338196c1447a8276
+MAIL_USERNAME=hfu23hf29@asdf.de
+MAIL_PASSWORD=wh9g23
+MAIL_DOMAIN=domain.com
+BASE_URL=localhost:3002
+PRODFOLDER=/home/xyz/app
+SSHDEST=xyz@domain.com

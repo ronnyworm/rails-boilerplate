@@ -7,9 +7,7 @@ first:
 	@echo "CREATE DATABASE xyz_dev CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
 	@echo "GRANT ALL ON xyz_dev.* TO 'username';"
 	@echo ""
-	@echo "Also do this:"
-	#cat rails-app/db/starting-data.sql
-	@echo use seeds
+	@echo "use seeds to prepare the master data to get the application running quickly"
 
 start:
 	docker-compose --project-name $(PROJECT_NAME) up -d
@@ -20,7 +18,7 @@ startd:
 	./con-restart.sh d
 	
 intocon:
-	docker exec -it $(shell docker ps | grep $(CONTAINER_NAME) | cut -d \  -f1) /bin/bash
+	docker exec -it $(CONTAINER_NAME) /bin/bash
 
 stop:
 	docker-compose stop
@@ -32,7 +30,7 @@ assets:
 	docker exec -it $(CONTAINER_NAME) rake assets:precompile
 
 publish:
-	ssh ronny@anhupen.de -t 'cd /home/ronny/$(PROJECT_NAME) && git pull && make startd && exit; bash -l'
+	ssh $(SSHDEST) -t 'cd $(PRODFOLDER) && git pull && make startd && exit; bash -l'
 
 ngrok:
 	ngrok http $(RAILS_PORT)

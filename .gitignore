@@ -2,7 +2,11 @@
 /.bundle
 
 .env
+# for mysql
 /db
+# Ignore the default SQLite database.
+rails-app/db/*.sqlite3
+rails-app/db/*.sqlite3-journal
 */log/*
 /tmp
 */tmp/*

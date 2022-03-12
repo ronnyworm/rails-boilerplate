@@ -41,14 +41,13 @@ services:
       RAILS_ENV: ${RAILS_ENV}
       RAILS_PORT: ${RAILS_PORT}
       SECRET_KEY_BASE: ${SECRET_KEY_BASE}
-      NETCUP_MAIL_USERNAME: ${NETCUP_MAIL_USERNAME}
-      NETCUP_MAIL_PASSWORD: ${NETCUP_MAIL_PASSWORD}
-      NETCUP_MAIL_DOMAIN: ${NETCUP_MAIL_DOMAIN}
+      MAIL_USERNAME: ${MAIL_USERNAME}
+      MAIL_PASSWORD: ${MAIL_PASSWORD}
+      MAIL_DOMAIN: ${MAIL_DOMAIN}
       BASE_URL: ${BASE_URL}
-    container_name: ${PROJECT_NAME}-app
     restart: unless-stopped
     volumes:
-      - "./rails-app/:/rails-app/home"
+      - ./rails-app:/usr/app
     ports:
       - "${RAILS_PORT}:${RAILS_PORT}"
     networks:

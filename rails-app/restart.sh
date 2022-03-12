@@ -12,7 +12,6 @@ killname(){
 }
 killname ruby
 killname ruby
-killname ruby
 
 if [ -f tmp/pids/server.pid ]; then
 	rm tmp/pids/server.pid
@@ -32,8 +31,13 @@ if [ "$1" != "quick" ]; then
 	printf "done\nrake assets:precompile ... "
 	while [ 1 ]; do
 		result=$(RAILS_ENV=$RAILS_ENV rake assets:precompile 2>&1)
+		echo $result
 
-		if [[ "$result" =~ "Could not find" ]]; then
+		if [[ "$result" =~ "ExecJS::RuntimeUnavailable" ]]; then
+			exit
+		fi
+
+		if [[ "$result" =~ "Bundler::GemNotFound: Could not find" ]]; then
 			bundle install
 		else
 			break
@@ -61,7 +65,7 @@ if [ "$RAILS_ENV" == "production" ]; then
 	done
 
 else
-    if [ "$1" == "d" ]; then
+    if [ ! -z "$1" ]; then
         rails server -b 0.0.0.0 -p $RAILS_PORT -e $RAILS_ENV -d
     else
         rails server -b 0.0.0.0 -p $RAILS_PORT -e $RAILS_ENV
