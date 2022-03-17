@@ -31,17 +31,20 @@ if [ "$1" != "quick" ]; then
 	printf "done\nrake assets:precompile ... "
 	while [ 1 ]; do
 		result=$(RAILS_ENV=$RAILS_ENV rake assets:precompile 2>&1)
-		echo $result
+        echo $result
 
-		if [[ "$result" =~ "ExecJS::RuntimeUnavailable" ]]; then
-			exit
-		fi
+        if [[ "$result" =~ "ExecJS::RuntimeUnavailable" ]]; then
+            exit
+        fi
 
-		if [[ "$result" =~ "Bundler::GemNotFound: Could not find" ]]; then
-			bundle install
-		else
-			break
-		fi
+        if [[ "$result" =~ "Could not find" ]]; then
+            bundle install
+        else
+            if [[ "$result" =~ "Error" ]]; then
+                exit
+            fi
+            break
+        fi
 	done
 
 	printf "done\nrake test\n"
@@ -66,8 +69,8 @@ if [ "$RAILS_ENV" == "production" ]; then
 
 else
     if [ ! -z "$1" ]; then
-        rails server -b 0.0.0.0 -p $RAILS_PORT -e $RAILS_ENV -d
+        rails server -u puma -b 0.0.0.0 -p $RAILS_PORT -e $RAILS_ENV -d
     else
-        rails server -b 0.0.0.0 -p $RAILS_PORT -e $RAILS_ENV
+        rails server -u puma -b 0.0.0.0 -p $RAILS_PORT -e $RAILS_ENV
     fi
 fi
