@@ -11,10 +11,12 @@ first:
 
 start:
 	docker-compose --project-name $(PROJECT_NAME) up -d
+	./update-generic-scripts.sh
 	./con-restart.sh
 
 startd:
 	docker-compose --project-name $(PROJECT_NAME) up -d
+	./update-generic-scripts.sh
 	./con-restart.sh d
 	
 intocon:
